@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style3.css">
+    <title>Stop Watch</title>
+</head>
+
+
+<body  onbeforeunload="return confirma()">
+ 
+
+    <script type="text/javascript" src="javascript7.js" defer ></script>
+
+    <table>
+        <tr>
+            <td>
+                <label for="fnameID" style="font-size:25px;" >Subject ID:</label>
+            </td><td>
+                <input type="text" id="SubjectID" name="SubjectID" style="font-size:25px;" >
+            </td><td>
+                <label for="fname" style="font-size:25px;">Operator:</label>
+            </td><td>
+                <input type="text" id="operator" name="operator" style="font-size:25px;">
+            </td><td>
+                <label for="fname" style="font-size:25px;" >Radioligand:</label>
+            </td><td>
+                <select name="radiotracer" id="radiotracer" onchange="manualTimes()" style="font-size:25px;">
+                    <option value="">-- Select Radioligand -- </option>
+                    <option value="CURB">[11C]CURB</option>
+                    <option value="TRACK">[18F]TRACK</option>
+		             <option value="SL25">[11C]SL25.1188</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            
+            <td>
+                Scan Date:
+            </td>
+            <td>
+                
+                <label id="hoyy">1/1/1</label>
+            </td>
+            
+            <td>Synthesis Time: </td>
+            <td><input type="text" id="sintesis1" name="sintesis" style="font-size:25px;" > </td>
+            
+            
+            <td><button id="startHRRT" onclick="startHRRT()">Start HRRT</button>
+                <td><label id="HRRTtime" style="font-size:25px;" >00:00:00</label></td>
+                
+            </td>
+            
+            
+        </tr>
+        
+        <tr>
+            <td>Subject Weight (Kg): </td>
+            <td><input type="text" id="weight" name="weight" style="font-size:25px;" > </td>
+         <td>Inject Dose (mCi): </td>
+            <td><input type="text" id="inj_dose" name="inj_dose" style="font-size:25px;" > </td>     
+        </tr>
+
+        
+    </table>
+
+<br> <br>
+
+ <table>
+
+  <tr>
+<td width=70% align=center>    <div id="hora">Time:<BR>00:00:00</div> 
+     <div id="injection">Injection:<BR>00:00:00</div> 
+    <div id="timer">Since Injection:<BR>00:00:00</div> </td>
+
+<td>
+<table  >
+<tr><td> <div id="hora128">-5</div>    </td> <td> <button id="starts" onclick="starts(128)">Start</button> </td> <td>  <div id="samples128">00:00:00</div> </td> <td> <button id="ends" onclick="ends(128)">Stop</button> </td> <td>  <div id="samplee128">00:00:00</div> </td> <td> <textarea  rows="2" cols="40"> </textarea>  </td>    </tr>
+<tr><td> <div id="hora1">3</div>    </td> <td> <button id="starts" onclick="starts(1)">Start</button> </td> <td>  <div id="samples1">00:00:00</div> </td> <td> <button id="ends" onclick="ends(1)">Stop</button> </td> <td>  <div id="samplee1">00:00:00</div> </td> <td> <textarea  rows="2" cols="40"> </textarea>  </td>    </tr>
+<tr><td> <div id="hora2">7</div>    </td> <td> <button id="starts" onclick="starts(2)">Start</button> </td> <td>  <div id="samples2">00:00:00</div> </td> <td> <button id="ends" onclick="ends(2)">Stop</button> </td> <td>  <div id="samplee2">00:00:00</div> </td> <td> <textarea  rows="2" cols="40"> </textarea>  </td>  </tr>
+<tr><td> <div id="hora3">12</div>   </td> <td> <button id="starts" onclick="starts(3)">Start</button> </td> <td>  <div id="samples3">00:00:00</div> </td> <td> <button id="ends" onclick="ends(3)">Stop</button> </td> <td>  <div id="samplee3">00:00:00</div> </td> <td> <textarea  rows="2" cols="40"> </textarea>  </td>  </tr>
+<tr><td> <div id="hora4">15</div>   </td> <td> <button id="starts" onclick="starts(4)">Start</button> </td> <td>  <div id="samples4">00:00:00</div> </td> <td> <button id="ends" onclick="ends(4)">Stop</button> </td> <td>  <div id="samplee4">00:00:00</div> </td> <td> <textarea  rows="2" cols="40"> </textarea>  </td>  </tr>
+<tr><td> <div id="hora5">20</div>   </td> <td> <button id="starts" onclick="starts(5)">Start</button> </td> <td>  <div id="samples5">00:00:00</div> </td> <td> <button id="ends" onclick="ends(5)">Stop</button> </td> <td>  <div id="samplee5">00:00:00</div> </td> <td> <textarea  rows="2" cols="40"> </textarea>  </td>  </tr>
+<tr><td> <div id="hora6">30</div>   </td> <td> <button id="starts" onclick="starts(6)">Start</button> </td> <td>  <div id="samples6">00:00:00</div> </td> <td> <button id="ends" onclick="ends(6)">Stop</button> </td> <td>  <div id="samplee6">00:00:00</div> </td> <td> <textarea  rows="2" cols="40"> </textarea>  </td>  </tr>
+<tr><td> <div id="hora7">45</div>   </td> <td> <button id="starts" onclick="starts(7)">Start</button> </td> <td>  <div id="samples7">00:00:00</div> </td> <td> <button id="ends" onclick="ends(7)">Stop</button> </td> <td>  <div id="samplee7">00:00:00</div> </td> <td> <textarea  rows="2" cols="40"> </textarea>  </td>  </tr>
+<tr><td> <div id="hora8">60</div>   </td> <td> <button id="starts" onclick="starts(8)">Start</button> </td> <td>  <div id="samples8">00:00:00</div> </td> <td> <button id="ends" onclick="ends(8)">Stop</button> </td> <td>  <div id="samplee8">00:00:00</div> </td> <td> <textarea  rows="2" cols="40"> </textarea>  </td>  </tr>
+</table>
+</td>
+
+  </tr>
+
+
+</table> 
+<div class="button">
+<button id="imprime" onclick="window.print()">Print</button>
+<button id="start" onclick="start()">Injection</button>
+
+</div>
+
+<table>
+<tr><td><button id="start-camera">Start Camera</button></td>
+<td><button id="click-photo">Click Photo</button></td>
+</td>
+<td>
+
+</tr>
+<tr>
+<td><video id="video" width="320" height="240" autoplay></video></td>
+<td><canvas id="canvas" width="320" height="460"></canvas></td>
+<td>
+<div id="HRRT">00:00:00</div> 
+</td>
+</tr>
+</table> 
+
+
+</body>
+</html>
+
