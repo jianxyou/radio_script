@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style3.css">
+    <title>Stop Watch</title>
+
+
+    <script>
+        function calculateAndFill() {
+            // 假设你有个简单的计算公式
+            var dateOfLastTHC = document.getElementsByName("Time_of_Last_Synthesis")[0].value;
+            var timeOfLastTHC = document.getElementsByName("Time_of_Injection")[0].value;
+            var specific_activity_at_synthesis = document.getElementsByName("specific_activity_at_synthesis")[0].value;
+            // 基于这些值进行计算，这里是个示例，替换为你的实际计算逻辑
+
+
+
+            var time_elapsed = dateOfLastTHC + timeOfLastTHC; 
+
+            var seconds = Hour(time_elapsed)*3600 + (Minute(time_elapsed)) + SECOND(time_elapsed) * 36;;
+
+            var specific_activity_at_time_of_injection_mCi = specific_activity_at_synthesis * seconds;
+
+            var specific_activity_at_time_of_injection_GBq = 3;
+
+            var amount_injected_mCi = 3;
+    
+            var amount_injected_MBq = amount_injected_mCi * 37;
+            
+            var mass_injected = amount_injected_MBq / specific_activity_at_time_of_injection_GBq * 374.32
+
+
+
+            
+            // 填充计算结果到页面的某个元素中，比如一个新的input或div
+            // document.getElementsByName("time elapsed").innerHTML = dateOfLastTHC;
+
+            document.getElementById("seconds").textContent = "Seconds: " + dateOfLastTHC;
+
+            document.getElementById("activityMCi").textContent = "specficic activity injection(mCi): " + specificActivityAtTimeOfInjectionMCi;
+            // document.getElementsByName("specific_activity_at_time_of_injection_mCi").innerHTML = dateOfLastTHC;
+            
+
+            // document.getElementsByName("specific_activity_at_time_of_injection_GBq").innerHTML = dateOfLastTHC;
+
+
+        }
+    </script>
+</head>
+
+
+
+
+<table>     
+    <!-- <td>
+        <input type="text" name="Date of last THC" style="font-size:25px;" onchange="calculateAndFill()">
+    </td>
+    
+    <td>
+        <input type="text" name="Time of Last THC" style="font-size:25px;" onchange="calculateAndFill()">
+    </td>
+
+    <td>
+        <input type="text" name="specific_activity_at_synthesis" style="font-size:25px;" onchange="calculateAndFill()">
+    </td> -->
+
+
+    <td>
+        <input type="text" name="Time_of_Last_Synthesis" style="font-size:25px;" >
+    </td>
+
+    <td>
+        <input type="text" name="Time_of_Injection" style="font-size:25px;" >
+    </td>
+    
+
+    <td>
+        <input type="text" id="time_elapsed" style="font-size:25px;" readonly>
+    </td>
+    
+
+    <!-- 这里是不用输入的 -->
+    <td>
+        <div style="font-size:25px;" id ="seconds">Seconds : </div>
+    </td>
+
+    <tr>
+    <!-- 这里是不用输入的 -->
+    <td>
+        <div style="font-size:25px;" name="specific_activity_at_time_of_injection_mCi">specficic activity injection(mCi) </div>
+    </td>
+
+    </tr>
+
+    <!-- 这里是不用输入的 -->
+    <td>
+        <div style="font-size:25px;" name="specific_activity_at_time_of_injection_mCi">specific activity injection(GBq) </div>
+    </td>
+
+
+
+
+</table> 
